@@ -1,0 +1,152 @@
+.vc-voice-ping-good {
+    color: var(--text-feedback-positive);
+}
+
+.vc-voice-ping-okay {
+    color: var(--text-feedback-warning);
+}
+
+.vc-voice-ping-poor {
+    color: var(--text-feedback-critical);
+}
+
+.vc-voice-ping-muted {
+    color: var(--text-muted);
+}
+
+.vc-voice-ping-strong {
+    color: var(--text-strong);
+}
+
+.vc-voice-ping-ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* sits in the empty space left of the voice row */
+.vc-voice-ping-user {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + var(--space-4));
+    display: flex;
+    transform: translateY(-50%);
+    font-variant-numeric: tabular-nums;
+    cursor: pointer;
+}
+
+.vc-voice-ping-popout-button {
+    margin-bottom: var(--space-8);
+}
+
+.vc-voice-ping-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    padding-bottom: var(--space-16);
+}
+
+.vc-voice-ping-empty {
+    padding: var(--space-24) 0;
+    text-align: center;
+}
+
+.vc-voice-ping-focus {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+    padding: var(--space-16);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    background: var(--background-mod-subtle);
+}
+
+.vc-voice-ping-focus-top {
+    display: flex;
+    align-items: center;
+    gap: var(--space-16);
+}
+
+.vc-voice-ping-focus-ping {
+    display: flex;
+    flex-shrink: 0;
+    align-items: baseline;
+    gap: var(--space-4);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.vc-voice-ping-focus-ping svg {
+    align-self: center;
+    margin-right: var(--space-4);
+}
+
+.vc-voice-ping-focus-title {
+    min-width: 0;
+}
+
+.vc-voice-ping-graph {
+    height: 96px;
+}
+
+.vc-voice-ping-graph canvas {
+    display: block;
+    border-radius: var(--radius-xs);
+}
+
+.vc-voice-ping-tiles {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-8);
+}
+
+.vc-voice-ping-tile {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-8) var(--space-12);
+    border-radius: var(--radius-sm);
+    background: var(--background-mod-subtle);
+}
+
+.vc-voice-ping-peers {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: calc(var(--space-8) * -1);
+}
+
+.vc-voice-ping-peer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-12);
+    padding: var(--space-8);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.vc-voice-ping-peer:hover {
+    background: var(--interactive-background-hover);
+}
+
+.vc-voice-ping-selected,
+.vc-voice-ping-selected:hover {
+    background: var(--interactive-background-selected);
+}
+
+.vc-voice-ping-name {
+    flex: 1;
+    color: var(--text-strong);
+}
+
+.vc-voice-ping-speaking {
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--status-positive);
+}
+
+.vc-voice-ping-peer-ping {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-variant-numeric: tabular-nums;
+}
