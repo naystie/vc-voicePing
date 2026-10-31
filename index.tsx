@@ -5,6 +5,7 @@
  */
 
 import { definePluginSettings } from "@api/Settings";
+import { Devs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
 import type { User } from "@vencord/discord-types";
 import { RTCConnectionStore, showToast } from "@webpack/common";
@@ -90,7 +91,7 @@ function checkConnection() {
 export default definePlugin({
     name: "VoicePing",
     description: "Shows everyone's ping in voice with details",
-    authors: [{ name: "Nays", id: 344871509677965313n }],
+    authors: [Devs.Nays],
     tags: ["Voice", "Utility"],
     settings,
     managedStyle,

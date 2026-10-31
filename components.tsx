@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { BaseText } from "@components/BaseText";
 import ErrorBoundary from "@components/ErrorBoundary";
-import { HeadingTertiary } from "@components/Heading";
+import { Heading } from "@components/Heading";
+import { Text } from "@components/Text";
 import { classNameFactory } from "@utils/css";
 import { classes } from "@utils/misc";
 import type { RenderModalProps } from "@vencord/discord-types";
@@ -94,20 +94,20 @@ function Focus({ peer, name, me, lossIn }: { peer: Peer; name: string; me: boole
             <div className={cl("focus-top")}>
                 <div className={cl("focus-ping")}>
                     <Signal level={level} size="md" />
-                    <BaseText size="xxl" weight="bold" className={cl(level)}>{peer.ping ?? "–"}</BaseText>
-                    <BaseText size="sm" weight="semibold" className={cl("muted")}>ms</BaseText>
+                    <Text size="xxl" weight="bold" className={cl(level)}>{peer.ping ?? "–"}</Text>
+                    <Text size="sm" weight="semibold" className={cl("muted")}>ms</Text>
                 </div>
                 <div className={cl("focus-title")}>
-                    <BaseText size="md" weight="semibold" className={classes(cl("strong"), cl("ellipsis"))}>{name}</BaseText>
-                    <BaseText size="sm" className={cl("muted")}>{titles[level]}</BaseText>
+                    <Text size="md" weight="semibold" className={classes(cl("strong"), cl("ellipsis"))}>{name}</Text>
+                    <Text size="sm" className={cl("muted")}>{titles[level]}</Text>
                 </div>
             </div>
             <PingGraph points={peer.pings} />
             <div className={cl("tiles")}>
                 {stats.map(([label, value]) => (
                     <div key={label} className={cl("tile")}>
-                        <BaseText size="xs" weight="semibold" className={classes(cl("muted"), cl("ellipsis"))}>{label}</BaseText>
-                        <BaseText size="sm" weight="semibold" className={classes(cl("strong"), cl("ellipsis"))}>{value ?? "–"}</BaseText>
+                        <Text size="xs" weight="semibold" className={classes(cl("muted"), cl("ellipsis"))}>{label}</Text>
+                        <Text size="sm" weight="semibold" className={classes(cl("strong"), cl("ellipsis"))}>{value ?? "–"}</Text>
                     </div>
                 ))}
             </div>
@@ -127,12 +127,12 @@ function PeerRow({ peer, name, selected, onSelect }: { peer: Peer; name: string;
                 size="SIZE_32"
                 className={classes(speaking && cl("speaking"))}
             />
-            <BaseText size="md" weight="medium" className={classes(cl("name"), cl("ellipsis"))}>{name}</BaseText>
-            {loss !== "good" && <BaseText size="xs" weight="semibold" className={cl(loss)}>{`${pct(peer.loss)} loss`}</BaseText>}
+            <Text size="md" weight="medium" className={classes(cl("name"), cl("ellipsis"))}>{name}</Text>
+            {loss !== "good" && <Text size="xs" weight="semibold" className={cl(loss)}>{`${pct(peer.loss)} loss`}</Text>}
             {level && (
                 <div className={cl("peer-ping")}>
                     <Signal level={level} />
-                    <BaseText size="sm" weight="semibold" className={cl(level)}>{ms(peer.ping)}</BaseText>
+                    <Text size="sm" weight="semibold" className={cl(level)}>{ms(peer.ping)}</Text>
                 </div>
             )}
         </Clickable>
@@ -156,7 +156,7 @@ function PingModal({ focus, ...props }: RenderModalProps & { focus?: string; }) 
                 ? (
                     <div className={cl("body")}>
                         <Focus {...current} me={current.peer.id === me} lossIn={snapshot.lossIn} />
-                        <HeadingTertiary className={cl("strong")}>{`In Voice — ${peers.length}`}</HeadingTertiary>
+                        <Heading tag="h4" className={cl("strong")}>{`In Voice — ${peers.length}`}</Heading>
                         <div className={cl("peers")}>
                             {peers.map(({ peer, name }) => (
                                 <PeerRow key={peer.id} peer={peer} name={name} selected={peer === current.peer} onSelect={() => setSelected(peer.id)} />
@@ -164,7 +164,7 @@ function PingModal({ focus, ...props }: RenderModalProps & { focus?: string; }) 
                         </div>
                     </div>
                 )
-                : <BaseText size="sm" className={classes(cl("muted"), cl("empty"))}>You're not connected to voice.</BaseText>}
+                : <Text size="sm" className={classes(cl("muted"), cl("empty"))}>You're not connected to voice.</Text>}
         </Modal>
     );
 }
@@ -211,7 +211,7 @@ export const UserPing = ErrorBoundary.wrap(({ userId }: { userId: string; }) => 
                 >
                     {userPing === "icon"
                         ? <Signal level={level} />
-                        : <BaseText size="xs" weight="semibold" className={cl(level)}>{ping}</BaseText>}
+                        : <Text size="xs" weight="semibold" className={cl(level)}>{ping}</Text>}
                 </Clickable>
             )}
         </Tooltip>
